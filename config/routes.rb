@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  #API definition
+  namespace :api, defaults: { format: :json },
+                              constraints: { subdomain: 'api' }, path: '/' do
+    scope module: :v1, 
+            constraints: ApiConstraints.new(version: 1, default: true) do
+
+    end
+  end
+end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +64,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
