@@ -4,7 +4,8 @@ class ApiConstraints
     @default = options[:default]
   end
 
-  def matches?(req)
+  def matches?(req)  
+    debugger  
     @default || req.headers["Accept"].include?("application/vnd.marketplace.v#{@version}")
   end
 end

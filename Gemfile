@@ -38,6 +38,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
 
 #API gems
 gem 'active_model_serializers'
@@ -46,6 +47,9 @@ group :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "ffaker"
+  gem 'shoulda-matchers'
 end
+
+gem 'devise'
 
 
