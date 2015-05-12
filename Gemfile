@@ -4,8 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-gem 'mysql2'
+gem 'pg', '0.18.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -41,6 +40,10 @@ gem 'spring',        group: :development
 
 #API gems
 gem 'active_model_serializers'
+
+group :development do
+	gem 'byebug'
+end
 
 group :test do
   gem "rspec-rails"
