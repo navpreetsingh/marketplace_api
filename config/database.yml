@@ -42,12 +42,12 @@ test:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   reconnect: false  
   pool: 5
-  username: root
-  password: waheguru13
+  username: postgres
+  password: click227
   host: localhost
 
 development:
@@ -65,9 +65,9 @@ internal:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-# test:
-#   <<: *default  
-#   database: marketplace_api_test
+test:
+  <<: *default  
+  database: marketplace_api_test
 
 production:
   <<: *default  
