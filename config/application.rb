@@ -1,17 +1,15 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-require "active_model/railtie"
 require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+Bundler.require(:default, Rails.env)
 
 module MarketPlaceApi
   class Application < Rails::Application
@@ -26,18 +24,18 @@ module MarketPlaceApi
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
+  # don't generate RSpec tests for views and helpers
+  config.generators do |g|
+    g.test_framework :rspec, fixture: true
+    g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    g.view_specs false
+    g.helper_specs false
+    g.stylesheets = false
+    g.javascripts = false
+    g.helper = false
+  end
 
-    #don't generate Rspec tests for views and helpers
-    config.generators do |g|
-        g.test_framework :rspec, fixture: true
-        g.fixture_replacement :factory_girl, dir: 'spec/factories'
-        g.view_specs false
-        g.helper_specs false
-        g.stylesheets = false
-        g.javascripts = false
-        g.helper = false
-    end
-
-    config.autoload_paths += %W(#{config.root}/lib)
+  config.autoload_paths += %W(#{config.root}/lib)
   end
 end
