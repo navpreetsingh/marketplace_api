@@ -8,8 +8,8 @@ default: &default
   encoding: utf8
   reconnect: false  
   pool: 5
-  username: postgres
-  password: click227
+  username: khalsa
+  password: waheguru13
   host: localhost
 
 development:
