@@ -10,8 +10,7 @@ class Api::V1::OrdersController < ApplicationController
 		respond_with current_user.orders.find(params[:id])
 	end
 
-	def create
-		debugger
+	def create		
 		order = current_user.orders.build(order_params)
 
 		if order.save

@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20150607133749) do
   add_index "placements", ["order_id"], name: "index_placements_on_order_id"
   add_index "placements", ["product_id"], name: "index_placements_on_product_id"
 
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.string   "string"
+    t.string   "content"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.string   "title"
     t.decimal  "price"
